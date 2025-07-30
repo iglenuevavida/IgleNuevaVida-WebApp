@@ -142,14 +142,14 @@ def logout():
     session.clear()
     return redirect(url_for('login'))
 
-if __name__ == '__main__':
-    with app.app_context():
-        db.create_all()
-    app.run(debug=True)
-
 @app.route('/panel_pastores')
 def panel_pastores():
     if 'user_id' not in session or session.get('rol') != 'pastor':
         return redirect(url_for('login'))  # Bloquea si no es pastor
     miembros = Usuario.query.all()
     return render_template('panel_pastores.html', miembros=miembros)
+
+if __name__ == '__main__':
+    with app.app_context():
+        db.create_all()
+    app.run(debug=True)

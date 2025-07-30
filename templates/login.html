@@ -6,35 +6,33 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-sky-100">
-     <div class="p-4 md:p-8 lg:p-16">
-    <div class="max-w-md mx-auto mt-16 bg-white shadow p-8 rounded">
-        <h2 class="text-2xl font-bold text-green-600 mb-4">Iniciar Sesión</h2>
-        {% if error %}<p class="text-red-500">{{ error }}</p>{% endif %}
-      <form method="POST" action="{{ url_for('login') }}">
-  <input type="text" name="username" placeholder="Usuario" required>
-  <input type="password" name="password" placeholder="Contraseña" required>
-  <button type="submit">Iniciar sesión</button>
-</form>
+    <div class="p-4 md:p-8 lg:p-16">
+        <div class="max-w-md mx-auto mt-16 bg-white shadow p-8 rounded">
+            <h2 class="text-2xl font-bold text-green-600 mb-4">Iniciar Sesión</h2>
 
-{% if error %}
-  <p style="color:red">{{ error }}</p>
-{% endif %}
+            {% if error %}
+                <p class="text-red-500 mb-4">{{ error }}</p>
+            {% endif %}
 
-    {% endif %}
-</form>
-            <select name="rol" class="w-full p-2 border mb-4" required>
-                <option value="">Seleccionar rol</option>
-                <option value="pastor">Pastores</option>
-                <option value="admin">Administrador</option>
-                <option value="usuario">Usuario</option>
-            </select>
+            <form method="POST" action="{{ url_for('login') }}">
+                <input type="text" name="username" placeholder="Usuario" class="w-full p-2 border mb-4" required>
+                <input type="password" name="password" placeholder="Contraseña" class="w-full p-2 border mb-4" required>
+                
+                <select name="rol" class="w-full p-2 border mb-4" required>
+                    <option value="">Seleccionar rol</option>
+                    <option value="pastor">Pastores</option>
+                    <option value="admin">Administrador</option>
+                    <option value="usuario">Usuario</option>
+                </select>
 
-            <button class="w-full bg-green-500 text-white py-2 rounded">Ingresar</button>
-        </form>
-        <div class="text-center mt-4">
-            <a href="{{ url_for('invitado') }}" class="text-blue-600">Entrar como invitado</a>
+                <button type="submit" class="w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded">Ingresar</button>
+            </form>
+
+            <div class="text-center mt-4">
+                <a href="{{ url_for('invitado') }}" class="text-blue-600">Entrar como invitado</a>
+            </div>
         </div>
-    </div>
     </div>
 </body>
 </html>
+   v
