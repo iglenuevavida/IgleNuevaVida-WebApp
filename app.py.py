@@ -80,7 +80,7 @@ def registro():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if 'user_id' in session:
-        return redirect(url_for('dashboard'))
+        return redirect(url_for('dashboard'))  # Ya está logueado
 
     error = None
     if request.method == 'POST':
@@ -94,13 +94,19 @@ def login():
                 session['username'] = user.username
                 session['rol'] = user.rol
                 session.permanent = True
-                return redirect(url_for('dashboard'))
+
+                # Redirige según el rol
+                if user.rol == 'pastor':
+                    return redirect(url_for('panel_pastores'))
+                else:
+                    return redirect(url_for('dashboard'))
             else:
                 error = "Contraseña incorrecta"
         else:
             error = "El usuario no está registrado. Registrate primero."
 
     return render_template('login.html', error=error)
+
 
 @app.route('/invitado')
 def invitado():
