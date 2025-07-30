@@ -14,11 +14,12 @@
     <h1 class="text-3xl font-bold text-green-600 mb-4">Panel de {{ rol|capitalize }}</h1>
 
     {% if rol == 'pastor' %}
-        <p>Acceso completo a los datos de miembros registrados.</p>
-        <a href="{{ url_for('panel_pastores') }}" 
-           class="mt-4 inline-block bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded shadow">
-            Ir al Panel de Pastores
-        </a>
+  <a href="{{ url_for('panel_pastores') }}"
+     class="mt-4 inline-block bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded shadow">
+     Ir al Panel de Pastores
+  </a>
+{% endif %}
+
     {% elif rol == 'redes' %}
         <p>Solo puedes ver los nombres de los registrados.</p>
     {% else %}

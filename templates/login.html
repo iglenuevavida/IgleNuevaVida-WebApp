@@ -10,13 +10,17 @@
     <div class="max-w-md mx-auto mt-16 bg-white shadow p-8 rounded">
         <h2 class="text-2xl font-bold text-green-600 mb-4">Iniciar Sesión</h2>
         {% if error %}<p class="text-red-500">{{ error }}</p>{% endif %}
-       <form method="POST" action="{{ url_for('login') }}" autocomplete="on">
-    <input type="text" name="username" placeholder="Usuario" autocomplete="username" required>
-    <input type="password" name="password" placeholder="Contraseña" autocomplete="current-password" required>
-    <button type="submit">Ingresar</button>
 
-    {% if error %}
-        <p style="color:red;">{{ error }}</p>
+      <form method="POST" action="{{ url_for('login') }}">
+  <input type="text" name="username" placeholder="Usuario" required>
+  <input type="password" name="password" placeholder="Contraseña" required>
+  <button type="submit">Iniciar sesión</button>
+</form>
+
+{% if error %}
+  <p style="color:red">{{ error }}</p>
+{% endif %}
+
     {% endif %}
 </form>
             <select name="rol" class="w-full p-2 border mb-4" required>
