@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Encuesta</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-sky-100">
+     <div class="p-4 md:p-8 lg:p-16">
+    <div class="max-w-xl mx-auto mt-16 bg-white shadow p-8 rounded">
+        <h2 class="text-xl font-bold text-green-600 mb-6">Encuesta para usuarios</h2>
+        <form method="POST">
+            <input name="nombre" class="w-full p-2 border mb-4" type="text" placeholder="Nombre" required>
+            <input name="apellido" class="w-full p-2 border mb-4" type="text" placeholder="Apellido" required>
+            <input name="edad" class="w-full p-2 border mb-4" type="number" placeholder="Edad" required>
+            <input name="lider" class="w-full p-2 border mb-4" type="text" placeholder="Líder a cargo" required>
+            <input name="ministerio" class="w-full p-2 border mb-4" type="text" placeholder="Ministerio">
+            <input name="tiempo_en_iglesia" class="w-full p-2 border mb-4" type="text" placeholder="¿Hace cuánto tiempo asiste a la iglesia?" required>
+            <select name="bautizado" class="w-full p-2 border mb-4" required>
+                <option value="">¿Se encuentra bautizado/a?</option>
+                <option value="Sí">Sí</option>
+                <option value="No">No</option>
+            </select>
+
+            <button class="bg-green-500 text-white py-2 px-4 rounded w-full">Enviar</button>
+        </form>
+    </div>
+     </div>
+</body>
+</html>

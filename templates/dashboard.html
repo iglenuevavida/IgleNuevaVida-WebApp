@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <body class="bg-sky-100 p-8">
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo Iglesia" class="h-20 mb-4">
+
+</head>
+<body class="bg-sky-100 p-8">
+     <div class="p-4 md:p-8 lg:p-16">
+    <h1 class="text-3xl font-bold text-green-600 mb-4">Panel de {{ rol|capitalize }}</h1>
+
+    {% if rol == 'pastor' %}
+        <p>Acceso completo a los datos de miembros registrados.</p>
+        <a href="{{ url_for('panel_pastores') }}" 
+           class="mt-4 inline-block bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded shadow">
+            Ir al Panel de Pastores
+        </a>
+    {% elif rol == 'redes' %}
+        <p>Solo puedes ver los nombres de los registrados.</p>
+    {% else %}
+        <p>Bienvenido al panel de usuario.</p>
+    {% endif %}
+     </div>
+</body>
+</html>

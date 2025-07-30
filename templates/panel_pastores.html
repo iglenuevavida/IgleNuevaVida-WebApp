@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Panel de Pastores</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-sky-100 p-8">
+     <div class="p-4 md:p-8 lg:p-16">
+    <h1 class="text-3xl font-bold text-green-600 mb-4">Panel de Pastores</h1>
+    
+    {% if miembros %}
+        <table class="table-auto border-collapse border border-gray-400 w-full">
+            <thead>
+                <tr>
+                    <th class="border border-gray-300 px-4 py-2">Nombre</th>
+                    <th class="border border-gray-300 px-4 py-2">Apellido</th>
+                    <th class="border border-gray-300 px-4 py-2">Edad</th>
+                    <th class="border border-gray-300 px-4 py-2">Líder</th>
+                    <th class="border border-gray-300 px-4 py-2">Ministerio</th>
+                    <th class="border border-gray-300 px-4 py-2">Tiempo en Iglesia</th>
+                    <th class="border border-gray-300 px-4 py-2">Bautizado</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for miembro in miembros %}
+                <tr>
+                    <td class="border border-gray-300 px-4 py-2">{{ miembro.nombre }}</td>
+                    <td class="border border-gray-300 px-4 py-2">{{ miembro.apellido }}</td>
+                    <td class="border border-gray-300 px-4 py-2">{{ miembro.edad }}</td>
+                    <td class="border border-gray-300 px-4 py-2">{{ miembro.lider }}</td>
+                    <td class="border border-gray-300 px-4 py-2">{{ miembro.ministerio }}</td>
+                    <td class="border border-gray-300 px-4 py-2">{{ miembro.tiempo_en_iglesia }}</td>
+                    <td class="border border-gray-300 px-4 py-2">{{ miembro.bautizado }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No hay miembros registrados aún.</p>
+    {% endif %}
+
+    <a href="{{ url_for('dashboard') }}" class="mt-4 inline-block text-blue-600">Volver al panel</a>
+     </div>
+</body>
+</html>
